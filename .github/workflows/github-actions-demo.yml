@@ -1,20 +1,14 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: README Dynamic Update
+
+on:
+  push:
+    paths:
+      - *.md
+      - readme.json
+      - **/*.md
+  workflow_dispatch:
+
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo content
-        uses: actions/checkout@v2 # checkout the repository content to github runner.
-      - name: setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8 #install the python needed
-      - name: execute py script # run the run.py to get the latest data
-        run: |
-          python test.py
-    
   update_templates:
     name: "Update Templates"
     runs-on: ubuntu-latest
