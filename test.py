@@ -3,4 +3,4 @@ def test_gha(n):
 
 if __name__ == "__main__":
     test_gha(10)
-    print("Number is 10, great")
+    print("Number is 10, great!")
