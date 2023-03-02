@@ -35,8 +35,8 @@ jobs:
 
       - name: commit
         run: |
-          git config --global user.email youremail
-          git config --global user.name yourusername
+          git config --global user.email carlo.dt@hotmail.com
+          git config --global user.name CarloCDT
           git add .
           git commit -m "README update Automation" -a
       - name: Push changes
