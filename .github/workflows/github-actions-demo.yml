@@ -14,11 +14,10 @@ jobs:
       - name: execute py script # run the run.py to get the latest data
         run: |
           python test.py
-      - name: Update GitHub Profile README
-        uses: CarloCDT/github-actions
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          header: "Hey, I'm Carlo! 👋"
-          subhead: "This is some new text."
-          footer: "**More TEXT**"
+      - name: Update README.md
+        run: |
+          sed -i 's/<reponame>/'${{ github.event.repository.name }}'/' README.md
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git commit -am "Automated report"
+          git push
