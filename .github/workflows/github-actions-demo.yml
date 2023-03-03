@@ -12,7 +12,7 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v35
         with:
-          files: "**/optimized_agent*.dill"
+          files: "**/optimized_agent.dill"
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -27,7 +27,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Update README.md
         run: |
-          python update_leaderboards.py ${{ steps.changed-files.outputs.all_changed_files }} {{ github.actor }}
+          python update_leaderboards.py ${{ steps.changed-files.outputs.all_changed_files }} ${{ github.actor }}
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git status
