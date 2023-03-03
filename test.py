@@ -15,7 +15,7 @@ def add_score(leaderboard, user="test_user", score=0):
     return leaderboard
 
 def save_leaderboard(leaderboard, path='leaderboard/leaderboard.csv'):
-    leaderboard.to_csv(path, ignore_index=True)
+    leaderboard.to_csv(path, index=False)
 
 def update_readme(leaderboard):
     f = open("README.md", "w")
