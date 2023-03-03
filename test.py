@@ -20,11 +20,13 @@ def save_leaderboard(leaderboard, path='leaderboard/leaderboard.csv'):
 def update_readme(leaderboard):
     f = open("README.md", "w")
     f.write("# Leaderboard - Using GHA\n\n")
+    f.write(f"Last Update (UTC): {datetime.utcnow()}\n\n")
     f.write(leaderboard.to_markdown())
+    f.write("\n")
     f.close()
 
 if __name__ == "__main__":
     leaderboard = load_leaderboard()
-    add_score(leaderboard, user='CarloCDT', score=0.5)
+    leaderboard = add_score(leaderboard, user='CarloCDT', score=0.7)
     save_leaderboard(leaderboard)
     update_readme(leaderboard)
